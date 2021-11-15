@@ -2,13 +2,13 @@ FROM alpine:edge as builder
 
 LABEL maintainer="metowolf <i@i-meto.com>"
 
-ENV SNELL_VERSION 2.0.0
+ENV SNELL_DOWNLOAD_URL https://github.com/surge-networks/snell/releases/download/v2.1.0b1/snell-server-v2.1.0-linux-amd64.zip
 
 RUN apk update \
   && apk add --no-cache \
     unzip \
     upx \
-  && wget -O snell-server.zip https://github.com/surge-networks/snell/releases/download/v${SNELL_VERSION}/snell-server-v${SNELL_VERSION}-linux-amd64.zip \
+  && wget -O snell-server.zip ${SNELL_DOWNLOAD_URL} \
   && unzip snell-server.zip \
   && upx --brute snell-server \
   && mv snell-server /usr/local/bin/
@@ -31,7 +31,7 @@ EXPOSE ${SERVER_PORT}/udp
 
 COPY --from=builder /usr/local/bin /usr/local/bin
 
-RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
+RUN wget -q --no-check-certificate -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
   && wget -O glibc.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
   && wget -O glibc-bin.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk \
   && apk add glibc.apk glibc-bin.apk \
