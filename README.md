@@ -50,8 +50,7 @@ $ docker push axelburks/snell
 ### Start a container
 
 ```bash
-$ docker run -d -p 8388:8388 -p 8388:8388/udp \
-  --restart always --network host --name=snell axelburks/snell
+$ docker run -d --name=snell -v $HOME/app/snell:/etc/snell --restart always -p 8388:8388 -p 8388:8388/udp axelburks/snell
 ```
 
 ### Display config
