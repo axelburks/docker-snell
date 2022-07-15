@@ -2,7 +2,7 @@ FROM alpine:edge as builder
 
 LABEL maintainer="metowolf <i@i-meto.com>"
 
-ENV SNELL_DOWNLOAD_URL https://github.com/surge-networks/snell/releases/download/v2.1.0b1/snell-server-v2.1.0-linux-amd64.zip
+ENV SNELL_DOWNLOAD_URL https://github.com/surge-networks/snell/releases/download/v3.0.1/snell-server-v3.0.1-linux-amd64.zip
 
 RUN apk update \
   && apk add --no-cache \

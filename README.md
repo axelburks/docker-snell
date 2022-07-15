@@ -40,10 +40,11 @@ $ cd docker-snell
 $ docker build -t axelburks/snell:latest .
 ```
 
-### Pull the image
+### Pull&Push the image
 
 ```bash
 $ docker pull axelburks/snell
+$ docker push axelburks/snell
 ```
 
 ### Start a container
