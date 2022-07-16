@@ -38,6 +38,8 @@
 ```bash
 $ cd docker-snell
 $ docker build -t axelburks/snell:latest .
+$ cd arm
+$ docker buildx build --platform linux/arm/v7 -t axelburks/snell:armv7l .
 ```
 
 ### Pull&Push the image
