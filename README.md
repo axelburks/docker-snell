@@ -47,6 +47,7 @@ $ docker buildx build --platform linux/arm/v7 -t axelburks/snell:armv7l .
 ```bash
 $ docker pull axelburks/snell
 $ docker push axelburks/snell
+$ docker push axelburks/snell:armv7l
 ```
 
 ### Start a container
