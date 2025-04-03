@@ -37,17 +37,21 @@
 ### Build the image
 ```bash
 $ cd docker-snell
-$ docker build -t axelburks/snell:latest .
+$ docker build -t axelburks/snell:latest -t axelburks/snell:v4.1.1 .
 $ cd arm
-$ docker buildx build --platform linux/arm/v7 -t axelburks/snell:armv7l .
+$ docker buildx build --platform linux/arm/v7 -t axelburks/snell:armv7l -t axelburks/snell:armv7l-v4.1.1 .
 ```
 
 ### Pull&Push the image
 
 ```bash
 $ docker pull axelburks/snell
-$ docker push axelburks/snell
+
+$ docker push axelburks/snell:latest
+$ docker push axelburks/snell:v4.1.1
+
 $ docker push axelburks/snell:armv7l
+$ docker push axelburks/snell:armv7l-v4.1.1
 ```
 
 ### Start a container

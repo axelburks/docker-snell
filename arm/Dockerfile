@@ -1,7 +1,7 @@
 
 FROM debian
 
-ENV SNELL_DOWNLOAD_URL https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-armv7l.zip
+ENV SNELL_DOWNLOAD_URL https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-armv7l.zip
 
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 8388
